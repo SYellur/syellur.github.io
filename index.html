@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Suhas Yellur - Senior Software Engineer specializing in Backend Development, AI Engineering, and Cloud Architecture. Expert in Java, Spring Boot, Node.js, and AI/ML integration.">
+    <meta name="keywords" content="Suhas Yellur, Software Engineer, Backend Developer, AI Engineer, Java, Spring Boot, Node.js, SAP, Machine Learning, Dublin, Portfolio">
+    <meta name="author" content="Suhas Yellur">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="Suhas Yellur - Senior Software Engineer | Backend & AI">
+    <meta property="og:description" content="Senior Software Engineer specializing in Backend Development, AI Engineering, and Cloud Architecture">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourwebsite.com">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Suhas Yellur - Software Engineer">
+    <meta name="twitter:description" content="Backend & AI Engineering Expert">
+    
+    <title>Suhas Yellur - Senior Software Engineer | Backend & AI Engineering</title>
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-color: #0066FF;
+            --secondary-color: #00D9FF;
+            --dark-bg: #0A0E27;
+            --light-bg: #1A1F3A;
+            --text-primary: #FFFFFF;
+            --text-secondary: #A0AEC0;
+            --accent-gradient: linear-gradient(135deg, #0066FF 0%, #00D9FF 100%);
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: var(--dark-bg);
+        }
+        
+        .animated-bg::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0,102,255,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -200px;
+            right: -200px;
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        .animated-bg::after {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0,217,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            bottom: -150px;
+            left: -150px;
+            animation: float 15s ease-in-out infinite reverse;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(50px, 50px) scale(1.1); }
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 5%;
+            background: rgba(10, 14, 39, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        nav.scrolled {
+            padding: 15px 5%;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+        
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        nav .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav ul li a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-gradient);
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 100px 5% 50px;
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(40px, 8vw, 80px);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+        
+        .hero h1 .gradient-text {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero p {
+            font-size: clamp(18px, 2vw, 24px);
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 15px 35px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: var(--accent-gradient);
+            color: white;
+            box-shadow: 0 10px 30px rgba(0,102,255,0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,102,255,0.5);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--primary-color);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 100px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        section h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(32px, 5vw, 48px);
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .skill-card {
+            background: var(--light-bg);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-color);
+            box-shadow: 0 20px 40px rgba(0,102,255,0.2);
+        }
+        
+        .skill-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+        
+        .skill-card p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+        
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .tag {
+            padding: 5px 15px;
+            background: rgba(0,102,255,0.2);
+            border-radius: 20px;
+            font-size: 14px;
+            color: var(--secondary-color);
+        }
+        
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .project-card {
+            background: var(--light-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,102,255,0.3);
+        }
+        
+        .project-card.featured {
+            grid-column: span 2;
+        }
+        
+        .project-content {
+            padding: 30px;
+        }
+        
+        .project-status {
+            display: inline-block;
+            padding: 5px 15px;
+            background: rgba(0,217,255,0.2);
+            color: var(--secondary-color);
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .project-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .project-card p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        
+        .project-features {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .project-features h4 {
+            font-size: 16px;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+        
+        .project-features ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .project-features ul li {
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+            font-size: 14px;
+        }
+        
+        .project-features ul li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+        }
+        
+        .project-impact {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        
+        .impact-badge {
+            padding: 8px 16px;
+            background: rgba(0,102,255,0.3);
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 50px;
+            margin-top: 50px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: var(--accent-gradient);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            padding-left: 30px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -56px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--accent-gradient);
+            box-shadow: 0 0 0 4px var(--dark-bg);
+        }
+        
+        .timeline-item h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-item .company {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-item .duration {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        .timeline-item ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+        
+        .timeline-item ul li {
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .timeline-item ul li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-size: 20px;
+        }
+        
+        /* Contact Section */
+        #contact {
+            text-align: center;
+            padding: 150px 5%;
+        }
+        
+        #contact h2 {
+            margin-bottom: 30px;
+        }
+        
+        #contact p {
+            font-size: 20px;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background: var(--light-bg);
+            border-radius: 50px;
+            text-decoration: none;
+            color: var(--text-primary);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-link:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,102,255,0.3);
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 5%;
+            background: var(--light-bg);
+            color: var(--text-secondary);
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Responsive */
+        @media (max-width: 968px) {
+            .project-card.featured {
+                grid-column: span 1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--light-bg);
+                flex-direction: column;
+                padding: 20px;
+                gap: 20px;
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .timeline {
+                padding-left: 30px;
+            }
+            
+            .timeline-item::before {
+                left: -36px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-bg"></div>
+    
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container">
+            <div class="logo">SY</div>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            <ul id="navMenu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 data-aos="fade-up">
+                Hi, I'm <span class="gradient-text">Suhas Yellur</span>
+            </h1>
+            <p data-aos="fade-up" data-aos-delay="100">
+                Senior Software Engineer specializing in Backend Development, AI Engineering, and Cloud Architecture. Building scalable systems that connect enterprises and power intelligent automation.
+            </p>
+            <div class="cta-buttons" data-aos="fade-up" data-aos-delay="200">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 data-aos="fade-up">Technical Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
+                <h3>Backend Development</h3>
+                <p>Building scalable, high-performance backend systems and microservices</p>
+                <div class="skill-tags">
+                    <span class="tag">Java</span>
+                    <span class="tag">Spring Boot</span>
+                    <span class="tag">Node.js</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">TypeScript</span>
+                </div>
+            </div>
+            
+            <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
+                <h3>AI & Machine Learning</h3>
+                <p>Integrating LLMs and building intelligent automation solutions</p>
+                <div class="skill-tags">
+                    <span class="tag">LangChain</span>
+                    <span class="tag">OpenAI API</span>
+                    <span class="tag">Hugging Face</span>
+                    <span class="tag">RAG</span>
+                    <span class="tag">Prompt Engineering</span>
+                </div>
+            </div>
+            
+            <div class="skill-card" data-aos="fade-up" data-aos-delay="300">
+                <h3>Cloud & DevOps</h3>
+                <p>Containerization, orchestration, and CI/CD pipeline automation</p>
+                <div class="skill-tags">
+                    <span class="tag">Docker</span>
+                    <span class="tag">Kubernetes</span>
+                    <span class="tag">Helm</span>
+                    <span class="tag">Jenkins</span>
+                    <span class="tag">AWS</span>
+                </div>
+            </div>
+            
+            <div class="skill-card" data-aos="fade-up" data-aos-delay="400">
+                <h3>Architecture</h3>
+                <p>Designing event-driven, microservices-based systems at scale</p>
+                <div class="skill-tags">
+                    <span class="tag">Microservices</span>
+                    <span class="tag">Event-Driven</span>
+                    <span class="tag">Multitenant</span>
+                    <span class="tag">REST APIs</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 data-aos="fade-up">Featured Projects</h2>
+        <div class="projects-grid">
+            <!-- Featured Project - Full Width -->
+            <div class="project-card featured" data-aos="zoom-in" data-aos-delay="100">
+                <div class="project-content">
+                    <span class="project-status">Production</span>
+                    <h3>SAP Signavio Connectivity Platform</h3>
+                    <p>Enterprise middleware service running on SAP BTP that orchestrates bidirectional business process data synchronization and transformation between SAP Signavio systems and SAP/non-SAP products (Solman, Cloud ALM, Enterprise Architecture Reference Library).</p>
+                    
+                    <div class="project-features">
+                        <h4>Key Capabilities</h4>
+                        <ul>
+                            <li>Establishes SAP Signavio Process Manager as the source of truth for business process authoring</li>
+                            <li>Provides extensible adapter framework for custom integration scenarios</li>
+                            <li>Delivers transformation logic for heterogeneous system data models</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="project-impact">
+                        <span class="impact-badge">40% faster integration</span>
+                        <span class="impact-badge">Multi-system support</span>
+                        <span class="impact-badge">BTP-native</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Regular Projects -->
+            <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
+                <div class="project-content">
+                    <span class="project-status">Production</span>
+                    <h3>FlowInspector</h3>
+                    <p>AI-powered observability system analyzing LLM application errors with real-time diagnostics. Integrates backend logs with BPMN models for contextual troubleshooting.</p>
+                    <div class="project-impact">
+                        <span class="impact-badge">45% faster resolution</span>
+                        <span class="impact-badge">AI-powered</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card" data-aos="zoom-in" data-aos-delay="300">
+                <div class="project-content">
+                    <span class="project-status">In Progress</span>
+                    <h3>BPMN2Code</h3>
+                    <p>Code generation tool transforming BPMN diagrams into application scaffolding. Accelerates greenfield project development by auto-generating boilerplate code.</p>
+                    <div class="project-impact">
+                        <span class="impact-badge">70% dev time reduction</span>
+                        <span class="impact-badge">Code generation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2 data-aos="fade-up">Work Experience</h2>
+        <div class="timeline">
+            <div class="timeline-item" data-aos="fade-right">
+                <h3>Senior Software Engineer</h3>
+                <div class="company">SAP Signavio, Dublin</div>
+                <div class="duration">May 2022 – Present</div>
+                <ul>
+                    <li>Architected Connectivity Platform as BTP middleware connecting Signavio to SAP/non-SAP systems</li>
+                    <li>Engineered event-driven microservices achieving 99.9% uptime for 500+ enterprise customers</li>
+                    <li>Established mTLS-secured multitenant communication channels, eliminating data leakage</li>
+                    <li>Built Docker-based dev environment enabling 60% faster iteration cycles</li>
+                    <li>Implemented distributed tracing with Dynatrace, reducing MTTR by 50%</li>
+                </ul>
+            </div>
+            
+            <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
+                <h3>Senior Business Consultant – Financial Services</h3>
+                <div class="company">SAP Ireland, Dublin</div>
+                <div class="duration">May 2018 – Apr 2022</div>
+                <ul>
+                    <li>Delivered IFRS17-compliant ETL pipeline processing 200M+ daily records with 99.8% integrity</li>
+                    <li>Engineered complex SQL procedures transforming business transactions to accounting entries in seconds</li>
+                    <li>Built rule-based accounting engines, accelerating quarter-close by 3 days for Tier-1 insurers</li>
+                    <li>Deployed ML classification models automating 60% of customer feedback analysis</li>
+                </ul>
+            </div>
+            
+            <div class="timeline-item" data-aos="fade-right" data-aos-delay="200">
+                <h3>Software Engineer</h3>
+                <div class="company">SAP, Bengaluru</div>
+                <div class="duration">May 2016 – Apr 2018</div>
+                <ul>
+                    <li>Built multithreaded migration framework processing 10B+ records, reducing migration time by 70%</li>
+                    <li>Automated CDS view generation for 50+ templates, cutting development effort by 80%</li>
+                </ul>
+            </div>
+            
+            <div class="timeline-item" data-aos="fade-right" data-aos-delay="300">
+                <h3>Software Engineer</h3>
+                <div class="company">Accenture, Bengaluru</div>
+                <div class="duration">Feb 2013 – Apr 2016</div>
+                <ul>
+                    <li>Delivered 12+ feature enhancements for SAP Core Banking Escrow module</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 data-aos="fade-up">Let's Connect</h2>
+        <p data-aos="fade-up" data-aos-delay="100">
+            I'm always open to discussing new opportunities, innovative projects, or potential collaborations.
+        </p>
+        <div class="contact-links" data-aos="fade-up" data-aos-delay="200">
+            <a href="mailto:suhasyellur@hotmail.com" class="contact-link">
+                📧 Email Me
+            </a>
+            <a href="https://linkedin.com/in/suhas-yellur" target="_blank" class="contact-link">
+                💼 LinkedIn
+            </a>
+            <a href="tel:0871844030" class="contact-link">
+                📱 Call Me
+            </a>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Suhas Yellur. All rights reserved.</p>
+    </footer>
+    
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Mobile menu toggle
+        function toggleMenu() {
+            const menu = document.getElementById('navMenu');
+            menu.classList.toggle('active');
+        }
+        
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('navMenu').classList.remove('active');
+                }
+            });
+        });
+        
+        // Parallax effect for animated background
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.animated-bg');
+            parallax.style.transform = 'translateY(' + scrolled * 0.5 + 'px)';
+        });
+        
+        // Add structured data for SEO
+        const structuredData = {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Suhas Yellur",
+            "jobTitle": "Senior Software Engineer",
+            "url": "https://yourwebsite.com",
+            "email": "suhas.yellur@hotmail.com",
+            "telephone": "0871844030",
+            "alumniOf": "Visvesvaraya Technological University",
+            "knowsAbout": ["Backend Development", "AI Engineering", "Cloud Architecture", "Java", "Spring Boot", "Node.js", "SAP BTP", "Microservices"],
+            "worksFor": {
+                "@type": "Organization",
+                "name": "SAP Signavio"
+            }
+        };
+        
+        const script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.text = JSON.stringify(structuredData);
+        document.head.appendChild(script);
+    </script>
+</body>
+</html>
